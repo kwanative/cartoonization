@@ -5,12 +5,69 @@
         <meta charset=utf-8> 
     </head>
     <body>
-        <h1>Cartoonization</h1> 
-        <form action = "/uploader1" method = "POST" 
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" />
-         <input type = "submit"/>
-        </form>  
+        <h1>Cartoonization</h1>
+        <br/>
+        <div style="text-align: center;">
+            {% if filename %}
+            <div class="row">
+                <form action = "/download" method = "POST" enctype = "multipart/form-data">
+                    <label>ดาวน์โหลด: </label>&nbsp;<input type = "submit" value="download" />
+                    <br/>
+                    <br/>
+                    <img title="Filtered Pic" src="{{ url_for('display_image', filename='filteredPic.jpg') }}" width="50%">
+                    <br/>
+                </form>
+            </div>
+            {% endif %}
+            <h2>ตัวอย่างภาพที่ผ่านการทำ Filter แต่ละแบบ</h2>
+            <br/>
+            <form action = "/upload1" method = "POST" enctype = "multipart/form-data">
+                <img title="Filter1" src="./static/example/img_filtered_ft1_oldFashion.png" width="50%">
+                <br/>
+                <label>Filter 1: </label>&nbsp;
+                <input type = "file" name = "file" />
+                <input type = "submit"/>
+                <label>&nbsp;&nbsp;&nbsp; กรุณาอัพโหลดภาพด้วยไฟล์ .jpg หรือ .jpeg</label>
+            </form>
+            <br/>
+            <form action = "/upload2" method = "POST" enctype = "multipart/form-data">
+                <img title="Filter2" src="./static/example/img_filtered_ft2_pencil3.png" width="50%">
+                <br/>
+                <label>Filter 2 :</label>&nbsp;
+                <input type = "file" name = "file" />
+                <input type = "submit"/>
+                <label>&nbsp;&nbsp;&nbsp; กรุณาอัพโหลดภาพด้วยไฟล์ .jpg หรือ .jpeg</label>
+            </form>
+            <br/>
+            <form action = "/upload3" method = "POST" enctype = "multipart/form-data">
+                <img title="Filter3" src="./static/example/img_filtered_ft3_oil.png" width="50%">
+                <br/>
+                <label>Filter 3: </label>&nbsp;
+                <input type = "file" name = "file" />
+                <input type = "submit"/>
+                <label>&nbsp;&nbsp;&nbsp; กรุณาอัพโหลดภาพด้วยไฟล์ .jpg หรือ .jpeg</label>
+            </form>
+            <br/>
+            <form action = "/upload4" method = "POST" enctype = "multipart/form-data">
+                <img title="Filter4" src="./static/example/img_filtered_ft4_pencilCV.png" width="50%">
+                <br/>
+                <label>Filter 4: </label>&nbsp;
+                <input type = "file" name = "file" />
+                <input type = "submit"/>
+                <label>&nbsp;&nbsp;&nbsp; กรุณาอัพโหลดภาพด้วยไฟล์ .jpg หรือ .jpeg</label>
+            </form>
+            <br/>
+            <form action = "/upload5" method = "POST" enctype = "multipart/form-data">
+                <img title="Filter5" src="./static/example/img_filtered_ft5_pencil0.png" width="50%">
+                <br/>
+                <label>Filter 5: </label>&nbsp;
+                <input type = "file" name = "file" />
+                <input type = "submit"/>
+                <label>&nbsp;&nbsp;&nbsp; กรุณาอัพโหลดภาพด้วยไฟล์ .jpg หรือ .jpeg</label>
+            </form>
+            <br/>
+        </div>
+    
         <!-- <a href="/my-link/">Click me</a> -->
     </body>
 </html>
