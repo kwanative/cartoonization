@@ -17,7 +17,7 @@ app.config.from_object('config')
 app.secret_key = "secret key"
 app.config['MAX_CONTENT_LENGTH']
 
-ALLOWED_EXTENSIONS = set(['jpg', 'jpeg'])
+ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png', 'gif'])
 path_upload_file='static/upload/'
 file_name_filtered = 'filteredPic.jpg'
 
@@ -154,7 +154,7 @@ def filter_two(uploaded_img): #sketch pencil 3
     img = io.imread('static/upload/'+uploaded_img)
 
     pencil_tex = 'static/pencils/pencil3.jpg'
-    
+
     # call function in pencilsketch.py
     im_pen = gen_pencil_drawing(img, kernel_size=8, stroke_width=1, num_of_directions=8,
                                            smooth_kernel="gauss",
@@ -167,9 +167,10 @@ def filter_two(uploaded_img): #sketch pencil 3
 
 def filter_three(uploaded_img): #oil
     print('filter_three uploaded_img: ', uploaded_img)
-    # parameters below can change
+    # parameter value below can change
     brush_width=3 #The size of the brush
     gradient='scharr' # The type of the artstyle you want to choose
+    
     result=[]
 
     # reading source file
