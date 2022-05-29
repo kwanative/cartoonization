@@ -6,7 +6,6 @@ from werkzeug.datastructures import FileStorage
 import os
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
 from pencilsketch import *
 import random
 from skimage import io, exposure
