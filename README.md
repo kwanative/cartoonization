@@ -8,6 +8,13 @@ git clone git@github.com:kwanative/cartoonization.git
 
 ## go to app directory
 cd server
+
+## install package
+pip install Flask gunicorn
+pip install opencv-python
+pip install -U scikit-image
+pip install scipy
+
 ## run with
 python3 app.py
 
