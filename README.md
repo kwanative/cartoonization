@@ -2,7 +2,9 @@
 CS642 Digital Image Processing Group Project
 
 ## getting start
-git clone <project>
+git clone https://github.com/kwanative/cartoonization.git
+or
+git clone git@github.com:kwanative/cartoonization.git
 
 ## go to app directory
 cd server
