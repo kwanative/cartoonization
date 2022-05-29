@@ -141,6 +141,7 @@ def filter_one(uploaded_img): #old fashion
     color = cv2.bilateralFilter(img2, 9, 200, 200)
 
     # cartoonize
+    # merging color pic and color by bitwise_and and using variable edges to define masking edge of pic
     cartoon = cv2.bitwise_and(color, color, mask=edges)
 
     cv2.imwrite(path_upload_file+file_name_filtered, cartoon)
@@ -153,7 +154,8 @@ def filter_two(uploaded_img): #sketch pencil 3
     img = io.imread('static/upload/'+uploaded_img)
 
     pencil_tex = 'static/pencils/pencil3.jpg'
-    print('filter_five pencil_tex: ', pencil_tex)
+    
+    # call function in pencilsketch.py
     im_pen = gen_pencil_drawing(img, kernel_size=8, stroke_width=1, num_of_directions=8,
                                            smooth_kernel="gauss",
                                            gradient_method=1, rgb=True, w_group=2, pencil_texture_path=pencil_tex,
@@ -165,7 +167,7 @@ def filter_two(uploaded_img): #sketch pencil 3
 
 def filter_three(uploaded_img): #oil
     print('filter_three uploaded_img: ', uploaded_img)
-    #Parameter you can choose from 
+    # parameters below can change
     brush_width=3 #The size of the brush
     gradient='scharr' # The type of the artstyle you want to choose
     result=[]
@@ -204,9 +206,13 @@ def filter_four(uploaded_img): #pencil sketch by opencv
 
     # converting the image into gray-scale
     grey_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    invert_img = cv2.bitwise_not(grey_img)
+    
+    # inverting grey_img by bitwise_not
+    invert_img = cv2.bitwise_not(grey_img) 
 
     blur_img = cv2.GaussianBlur(invert_img, (111, 111), 0)
+    
+    # inverting blur_img by bitwise_not
     invblur_img = cv2.bitwise_not(blur_img)
 
     # cartoonize sketch
@@ -222,7 +228,8 @@ def filter_five(uploaded_img): #sketch pencil 0
     img = io.imread('static/upload/'+uploaded_img)
 
     pencil_tex = 'static/pencils/pencil0.jpg' 
-    print('filter_five pencil_tex: ', pencil_tex)
+
+    # call function in pencilsketch.py
     im_pen = gen_pencil_drawing(img, kernel_size=8, stroke_width=1, num_of_directions=8,
                                            smooth_kernel="gauss",
                                            gradient_method=1, rgb=True, w_group=2, pencil_texture_path=pencil_tex,
